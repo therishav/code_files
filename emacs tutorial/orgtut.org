@@ -1,0 +1,66 @@
+#-*- mode: org -*-
+#+STARTUP: showall
+
+* Welcome to Org mode
+
+  Welcome, and thanks for trying out Org mode. Making outlines in
+  Org is very simple. It is just text! Just start typing.
+* This is a headline, it starts with one or more stars
+  A heading has one star, a sub-heading two, etc.
+* Working with lists
+** Moving around in our outline
+** Moving around headlines
+
+
+** Lord of the Rings
+   My favorite scenes are (in this order)
+   1. The attack of the Rohirrim
+   2. Eowyn's fight with the witch king
+      + this was already my favorite scene in the book
+      + I really like Miranda Otto.
+   3. Peter Jackson being shot by Legolas
+       - on DVD only
+      He makes a really funny face when it happens.
+   But in the end, no individual scenes matter but the film as a whole.
+   Important actors in this film are:
+   - Elijah Wood :: He plays Frodo
+   - Sean Austi :: He plays Sam, Frodo's friend.  I still remember
+     him very well from his role as Mikey Walsh in The Goonies.
+
+
+
+* Tables
+
+* Export to other formats
+#+TITLE:
+#+OPTIONS:
+
+* Source Code
+We can also run the source code blocks inside emacs
+#+BEGIN_SRC ruby
+  def fact(n)
+    if n == 0
+      1
+    else
+      n * fact(n-1)
+    end
+  end
+#+END_SRC
+
+* Latex integration
+- characters: \aplha \rightarrow \beta
+- $O(n \log n)$
+
+\begin{align*}
+ 3 * 2 &= 6 + 1 \\
+   &= 7
+\end{align*}
+
+* Literate Programming
+(org-babel-load-file <file_path>)
+
+
+* TODO explain todo lists
+  DEADLINE: <2020-02-12 Wed>
+
+* cycle through states

@@ -1,0 +1,32 @@
+Types of data structures and algorithms to apply.
+
+1. Arrays
+2. Linked List
+    - linked lists
+    - doubly linked lists
+    - circularly linked lists
+
+Data structures:
+1. Stacks - linked list implementation
+2. Queues
+3. Trees
+4. Graphs
+
+Algorithms:
+1. Searching 
+2. Sorting (*)
+
+Q) Given a class A we want to know at anytime, how many objects of "A" live in the heap memory.
+
+1. Static data memebers in classes
+2. How do define Static data memebers
+3. Constructors/Destructors
+4. Memory Allocation stack/heap
+5. Dynamic memory
+6. Difference between new/delete and malloc/free
+
+read about:
+    https://www.geeksforgeeks.org/left-shift-right-shift-operators-c-cpp/
+
+    taking space seperated integers as input https://stackoverflow.com/questions/5497277/how-to-read-space-separated-numbers-from-console/5497312
+    understand the above code.

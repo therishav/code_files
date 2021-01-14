@@ -1,0 +1,189 @@
+Chapter 3: Linux Command-Line for Beginners: What's happening on this 
+machine?
+
+-------- Notes on symbols and codes: ----------
+
+-------- Basic Codes: --------------------------
+
+w provides information on users, uptime, local or external user
+   every terminal that is opened is also shown
+   TTY = Terminal, FROM = where (0 = local), LOGIN@ = login time
+   IDLE = Idle Time, ... WHAT = what process is being run by that 
+user/terminal
+
+who short information on users and log in time
+
+top process manager/ task manager (shows top programs requiring CPU 
+power)
+   PID (number) is used to stop a specific process
+
+netstat -tupln shows information about local addresses and programs that 
+are being run from those locations
+                   DON'T USE netstat without any flags, as it will give 
+you a huge amount of information.
+
+----------- Software packages: ---------------------- If you run into 
+problems with software (while following the tutorial), use the following 
+command:
+
+ sudo apt-get install
+
+followed by these packages:
+
+htop net-tools
+
+
+
+Chapter 4: Linux Sysadmin Basics 03 -- Text Editors (and review of basic 
+commands)
+
+
+
+------- General notes: ----------------------
+
+
+
+
+
+-------- Notes on symbols and codes: ----------
+
+.  current directory
+
+..  directory above
+
+../..  directory above the directory
+
+
+
+ls flags
+
+-a all (hidden + all directories)
+
+-l long (full information on file (or all files)
+
+-h human (making it easy to read)
+
+-alh all 3 flags combined
+
+
+
+-------- Basic Codes: --------------------------
+
+mkdir Makes a new directory (folder)
+
+   Flagging with "-p" allows entire filepaths to be made
+
+
+
+rm Remove
+
+   Flagging with "-r" (recursive) removes everything in that directory
+
+
+
+cp Copy (e.g. cp location/file.txt newlocation/newfilename.txt)
+
+   When wanting a copy in the same file location, use "." as the file 
+location
+
+
+
+mv Move/Rename (to rename simply don't provide the directory)
+
+
+
+cat Read file. Multiple files can be read after each other by adding 
+them to the cat command with spaces
+
+
+
+nano texteditor (with GNU) recommended to use for now.
+
+
+
+vi texteditor (with GNU) recommended to read the manual for this.
+
+      :q! = quit w = write
+
+
+
+----------- Software packages: ----------------------
+
+If you want to check out the other texteditors:
+
+
+
+sudo apt install vim
+
+sudo apt install emacs-25
+
+Linux Sysadmin Basics 04 -- Shell Features -- Pipes and Redirection 
+---------------------------------------------------------------------
+
+pipes ||
+
+There are three kind of file descriptions
+
+echo "STDIN ---> 0"
+echo "STDOUT ---> 1"
+echo "STDERR ---> 2"
+
+ex$ echo "This should be in some file" 1>somefile.txt
+>	Overwrite output in file
+>>	Append output in file
+
+<	Input funnel
+
+PIPE
+ps aux		All the processes
+ps aux |less	more readable
+
+prog && prog2	if prog1 runs then prog2 also runs
+
+cat file.txt | cut -d: -f2
+grep someone ./*
+
+Linux Sysadmin Basics 05 -- Package Management with apt-get
+--------------------------------------------------------------
+
+Linux Sysadmin Basics 06 -- Process Overview
+--------------------------------------------------------------
+What is a process?
+PROCESSES :
+basically a program that runs
+
+link: https://www.geeksforgeeks.org/processes-in-linuxunix/
+
+"has 2 parts" :
+1. adress space that it can use, where it can write to
+2. kernel data structure keeping following information :
+
+* PID : primary key for processes
+* parent id : pid of process that started this one, if parent dies then child process is reparented to "init" process
+* UID : tells which user owns the process (same for groupID)
+* EffectiveUserID : (EUID) process spawned by user but shouldn't have same permissions as user (same for EgroupID)
+* Niceness : if NI high then it's low priority and let's lower NI processes take resources
+
+Life cycle of a process :
+created by parent process by forking itself,
+giving child that starts other programs/processes
+death : exiting with return value given to parent process
+
+case of init: (for ubuntu)
+started at kernel boot, runs all startup scripts
+
+VIM set python indentation
+set expandtab shiftwidth=4 softtabstop=4
+
+Common Network Commands
+-------------------------------------------------
+1. ifconfig
+
+2. iwconfig
+
+3. ping
+
+4. arp -a
+
+5. netstat -ano
+

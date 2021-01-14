@@ -1,0 +1,222 @@
+% Created 2020-01-08 Wed 16:27
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.1.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{Definition}
+\label{sec:orgd9d4402}
+
+Git is a distributed version control system. In contrast to distributed version control system(CVCS)
+
+
+\section{commands}
+\label{sec:orgaa74c8f}
+\begin{itemize}
+\item \texttt{git -{}-version}
+\item \texttt{git config -{}-list}
+\item \texttt{git status}
+\item \texttt{git log}
+\end{itemize}
+
+
+\section{git ignore file}
+\label{sec:orgd916ce1}
+\begin{itemize}
+\item \texttt{.DS\_STORE}
+\item \texttt{.project}
+\item \texttt{*.pyc}
+\end{itemize}
+
+\section{add files in staging are}
+\label{sec:orga331c14}
+\begin{itemize}
+\item \texttt{git add -A}
+\item \texttt{git reset} \emph{remove all files from staging area}
+\end{itemize}
+
+\section{commit}
+\label{sec:orga2db7b4}
+\begin{itemize}
+\item \texttt{git commit -m "message"} \emph{commits staged files}
+\end{itemize}
+
+\section{clonong a remote repo in git}
+\label{sec:org3461c02}
+\begin{itemize}
+\item \textasciitilde{}git clone <url> <where to clone>
+\item \emph{ex} \texttt{git clone ../local-repo.git .} \emph{cloning a local repo inside a directory}
+\end{itemize}
+
+\subsection{view infornation about the remote repo}
+\label{sec:org29048ad}
+\begin{itemize}
+\item \texttt{git remote -V}
+\item \texttt{git branch -a}
+\end{itemize}
+
+\section{Pushing changes}
+\label{sec:org94eceed}
+
+\subsection{First commit like done before}
+\label{sec:org835e924}
+\begin{itemize}
+\item \texttt{git diff}
+\item 
+\end{itemize}
+
+\subsection{Then Push}
+\label{sec:orgc4c81df}
+\begin{itemize}
+\item \texttt{git pull origin master}
+\item \texttt{git push origin master}
+\end{itemize}
+
+\section{Common workflow while using git}
+\label{sec:org0b6707f}
+
+\subsection{Dont commit at the master branch, create a branch for a desired feature.}
+\label{sec:org8af9063}
+\begin{itemize}
+\item \textasciitilde{}git branch <branch-name>
+\item \textasciitilde{}git checkout <branch-name>
+\item 
+\end{itemize}
+
+\subsection{After commit push branch to remote}
+\label{sec:org486a396}
+\begin{itemize}
+\item \textasciitilde{}git push -u origin calc-divide \emph{-u tells that we wanna associate our local and remote branch}
+\end{itemize}
+
+\subsection{Merge a branch with master}
+\label{sec:orgdb03692}
+\begin{itemize}
+\item \texttt{git checkout master}
+\item \texttt{git pull origin master}
+\item \texttt{git branch -{}-merged}
+\item \texttt{git merge <branch-name>}
+\item \texttt{git puch origin master}
+\end{itemize}
+
+\section{Errors and trouble shooting}
+\label{sec:org25df07f}
+
+\subsection{Bare and Non bare files problem}
+\label{sec:orge978a2f}
+\begin{verbatim}
+Centros@Centros-PC MINGW64 /d/code/git/remote-repo (master)
+$ git push origin master
+Total 0 (delta 0), reused 0 (delta 0)
+remote: error: refusing to update checked out branch: refs/heads/master
+remote: error: By default, updating the current branch in a non-bare repository
+remote: is denied, because it will make the index and work tree inconsistent
+remote: with what you pushed, and will require 'git reset --hard' to match
+remote: the work tree to HEAD.
+remote:
+remote: You can set the 'receive.denyCurrentBranch' configuration variable
+remote: to 'ignore' or 'warn' in the remote repository to allow pushing into
+remote: its current branch; however, this is not recommended unless you
+remote: arranged to update its work tree to match what you pushed in some
+remote: other way.
+remote:
+remote: To squelch this message and still keep the default behaviour, set
+remote: 'receive.denyCurrentBranch' configuration variable to 'refuse'.
+To D:/code/git/remote-repo/../local-repo/.git
+ ! [remote rejected] master -> master (branch is currently checked out)
+error: failed to push some refs to 'D:/code/git/remote-repo/../local-repo/.git
+\end{verbatim}
+\subsection{Solution Summary}
+\label{sec:org7954250}
+
+You cannot push to the one checked out branch of a repository because it would mess with the user of that repository in a way that will most probably end with \textbf{\textbf{loss of data and history}}. But you can push to any other branch of the same repository.
+
+As bare repositories never have any branch checked out, you can always push to any branch of a bare repository.
+
+\textbf{\textbf{There are multiple solutions, depending on your needs.}}
+
+\begin{itemize}
+\item Solution 1: Use a Bare Repostiory
+\end{itemize}
+
+As suggested, if on one machine, you don't need the working directory, you can move to a bare repository. To avoid messing with the repository, you can just clone it:
+
+\begin{verbatim}
+machine1$ cd ..
+machine1$ mv repo repo.old
+machine1$ git clone --bare repo.old repo
+
+\end{verbatim}
+Now you can push all you want to the same address as before.
+
+\begin{itemize}
+\item Solution 2: Push to a Non-Checked-Out Branch
+\end{itemize}
+
+But if you need to check out the code on your remote `<remote>`, then you can use a special branch to push. Let's say that in your local repository you have called your remote `origin` and you're on branch master. Then you could do
+
+\textasciitilde{}    machine2\$ git push origin master:master+machine2\textasciitilde{}
+
+Then you need to merge it when you're in the `origin` remote repo:
+
+\textasciitilde{}    machine1\$ git merge master+machine2\textasciitilde{}
+
+\begin{itemize}
+\item Autopsy of the Problem
+\end{itemize}
+
+When a branch is checked out, committing will add a new commit with the current branch's head as its parent and move the branch's head to be that new commit.
+
+So
+
+A ¡ö B
+    ¡ô
+[HEAD,branch1]
+
+becomes
+
+A ¡ö B ¡ö C
+	¡ô
+    [HEAD,branch1]
+
+But if someone could push to that branch inbetween, the user would get itself in what git calls \textbf{\textbf{detached head}} mode:
+
+A ¡ö B ¡ö X
+    ¡ô   ¡ô
+[HEAD] [branch1]
+
+Now the user is not in branch1 anymore, without having explicitly asked to check out another branch. Worse, the user is now \textbf{\textbf{outside any branch}}, and any new commit will just be \textbf{\textbf{dangling}}:
+
+      [HEAD]
+	¡õ
+	C
+      ¡ú
+A ¡ö B ¡ö X
+	¡ô
+       [branch1]
+
+Hypothetically, if at this point, the user checks out another branch, then this dangling commit becomes fair game for Git's \textbf{\textbf{garbage collector}}.
+\end{document}

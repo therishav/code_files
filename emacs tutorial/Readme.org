@@ -1,0 +1,11 @@
+* Keys
+| function                                                | key       |
+|---------------------------------------------------------+-----------|
+| Refactor Python code elpy                               | C-c C-r f |
+| elpy-multiedit-python-symbol-at-point                   | C-c C-e   |
+| evaluates the current python script                     | C-c C-c   |
+| evaluates the current statement                         | C-RET     |
+| switches between your script and the interactive shell. | C-c C-z   |
+| displays documentation for the thing under cursor       | C-c C-d   |
+| displays total lines in a file                          | C-x l     |
+|---------------------------------------------------------+-----------|

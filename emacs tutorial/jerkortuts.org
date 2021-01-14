@@ -1,0 +1,23 @@
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with <open> and enter text in its buffer.
+* Exploring File system in dired 
+1. Delete
+2. making new files
+3. refresh the buffer: g
+4. shell command on the file: !<filename>
+5. copy files: SHIFT-C
+6. mark: m
+7. unmark: SHIFT-m
+8. toggle mark:: t
+9. mark directories :: */
+10. regex :: SHIFT-a
+11. rename :: SHIFT-r
+12. copy :: SHIFT-s
+13. shorting :: s
+14. make dired buffer editable :: c-x c-q :: c-c c-c <save changes>
+15. mark backup files for deletion :: ~
+16. 
+* Managing and finding buffers
+  + open buffer list :: C-x C-b
+  + regex  :: occur
+  + ido mode :: 

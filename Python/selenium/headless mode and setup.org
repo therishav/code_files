@@ -1,0 +1,15 @@
+* Imports
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver.firefox.options import Options
+
+
+opts = Options()
+opts.headless = True
+assert opts.headless  # Operating in headless mode
+
+# Setting up selenium
+binary = FirefoxBinary('C:\\Users\\Centros\\AppData\\Local\\Mozilla Firefox\\firefox')
+driver = webdriver.Firefox(firefox_binary=binary, options=opts)

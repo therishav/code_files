@@ -1,0 +1,7 @@
+Question 1. The recusrsive stack problem on strings.
+* () has score 1
+* AB has score A+B
+* (A) has score 2*A
+example: 
+input   (()(()))
+output  6

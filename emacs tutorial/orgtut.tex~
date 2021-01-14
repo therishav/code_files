@@ -1,0 +1,99 @@
+% Created 2020-02-05 Wed 02:07
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.1.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\#-\textbf{- mode: org -}-
+
+\section{Welcome to Org mode}
+\label{sec:orgca5ab60}
+
+Welcome, and thanks for trying out Org mode. Making outlines in
+Org is very simple. It is just text! Just start typing.
+\section{This is a headline, it starts with one or more stars}
+\label{sec:org976a263}
+A heading has one star, a sub-heading two, etc.
+\section{Working with lists}
+\label{sec:org436f7d5}
+\subsection{Moving around in our outline}
+\label{sec:org070d5d2}
+\subsection{Moving around headlines}
+\label{sec:org5e5206d}
+
+
+\subsection{Lord of the Rings}
+\label{sec:org75c32da}
+My favorite scenes are (in this order)
+\begin{enumerate}
+\item The attack of the Rohirrim
+\item Eowyn's fight with the witch king
+\begin{itemize}
+\item this was already my favorite scene in the book
+\item I really like Miranda Otto.
+\end{itemize}
+\item Peter Jackson being shot by Legolas
+\begin{itemize}
+\item on DVD only
+\end{itemize}
+He makes a really funny face when it happens.
+\end{enumerate}
+But in the end, no individual scenes matter but the film as a whole.
+Important actors in this film are:
+\begin{description}
+\item[{Elijah Wood}] He plays Frodo
+\item[{Sean Austi}] He plays Sam, Frodo's friend.  I still remember
+him very well from his role as Mikey Walsh in The Goonies.
+\end{description}
+
+
+
+\section{Tables}
+\label{sec:org99dbd05}
+
+\section{Export to other formats}
+\label{sec:org3534c18}
+
+\section{Source Code}
+\label{sec:org1e5cc78}
+We can also run the source code blocks inside emacs
+\begin{verbatim}
+def fact(n)
+  if n == 0
+    1
+  else
+    n * fact(n-1)
+  end
+end
+\end{verbatim}
+
+\section{Latex integration}
+\label{sec:orga50e0b4}
+\begin{itemize}
+\item characters: \aplha \(\rightarrow\) \(\beta\)
+\item \(O(n \log n)\)
+\end{itemize}
+\end{document}

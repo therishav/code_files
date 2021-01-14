@@ -1,0 +1,146 @@
+% Created 2019-09-08 Sun 11:27
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.1.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\#+ STARTIP: overview
+\section{Interface Tweaks}
+\label{sec:orgc7ad6a9}
+\begin{verbatim}
+(setq inhibit-startup-message t)
+(defalias 'list-buffers 'ibuffer) ; make ibuffer default
+(tool-bar-mode -1)
+(fset 'yes-or-no-p 'y-or-n-p)
+(global-set-key (kbd "<f5>") 'revert-buffer)
+\end{verbatim}
+
+\section{try}
+\label{sec:orgd43d58d}
+\begin{verbatim}
+(use-package try
+  :ensure t)
+\end{verbatim}
+
+\section{which Key}
+\label{sec:org74ec5f0}
+Brings up some help
+\begin{verbatim}
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+\end{verbatim}
+
+\section{Org mode}
+\label{sec:org8787e37}
+Org Bullets That makes things look pretty
+\begin{verbatim}
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+\end{verbatim}
+
+\section{Ace windows for easy switching}
+\label{sec:orgf742fe5}
+\begin{verbatim}
+(use-package ace-window
+  :ensure t
+  :init
+  (progn
+  (global-set-key [remap other-window] 'ace-window)
+  (custom-set-faces
+  '(aw-leading-char-face
+  ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+   ))
+\end{verbatim}
+
+\section{Swiper / Ivy / Counsel}
+\label{sec:org53f7965}
+Swiper gives us a really efficient incremental search with regular
+expressions and Ivy / Counsel replace a lot of ido or helms
+completion functionality
+\begin{verbatim}
+(use-package counsel
+  :ensure t
+  )
+
+(use-package swiper
+  :ensure try
+  :config
+  (progn
+    (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (global-set-key "\C-s" 'swiper)
+    (global-set-key (kbd "C-c C-r") 'ivy-resume)
+    (global-set-key (kbd "<f6>") 'ivy-resume)
+    (global-set-key (kbd "M-x") 'counsel-M-x)
+    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+    (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+    (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+    (global-set-key (kbd "<f1> l") 'counsel-load-library)
+    (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+    (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+    (global-set-key (kbd "C-c g") 'counsel-git)
+    (global-set-key (kbd "C-c j") 'counsel-git-grep)
+    (global-set-key (kbd "C-c k") 'counsel-ag)
+    (global-set-key (kbd "C-x l") 'counsel-locate)
+    (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+    ))
+\end{verbatim}
+
+\section{Avy}
+\label{sec:org766a91d}
+Navigate by searching for a letter on the screen and jumping to it
+\begin{verbatim}
+(use-package avy
+  :ensure t
+  :bind ("M-s" . avy-goto-char))
+\end{verbatim}
+
+\section{Autocomplete}
+\label{sec:orgbe43bcf}
+\begin{verbatim}
+(use-package auto-complete
+  :ensure t
+  :init
+  (progn
+    (ac-config-default)
+    (global-auto-complete-mode t)
+    ))
+\end{verbatim}
+\section{Themes}
+\label{sec:orge19d008}
+\begin{verbatim}
+(use-package zenburn-theme
+  :ensure t
+  :config (load-theme 'zenburn t))
+
+(set-frame-font "Source Code Pro 12" nil t)
+\end{verbatim}
+\end{document}

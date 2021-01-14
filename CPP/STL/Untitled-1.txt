@@ -1,0 +1,35 @@
+ask user for test case T
+
+For each T:
+    (two lines)
+    Line 1: input N, C
+    Line 2: Arr[]
+
+Output:
+For each T:
+    one line of yes or no 
+    is_happy(N, C, Arr[])
+        if each ith element of Arr >= i, => happy
+
+        else
+            not happy
+
+2. cnote
+
+for each test case t
+   Line 1 (space seperated):
+    X pages long poetry, 
+    Y pages left in current notebook
+    K rubles left for now to buy notebooks
+    N Shopkeeper showed him some N notebooks
+    
+
+    from next line we have:
+    N lines contains two space-separated integers
+    Pi and Ci, denoting the number of pages and price of the ith notebook respectively.
+
+    pages_req = x - y;
+    if (p == pages_req) && (c == k)
+        luckychef
+    else
+        unluckychef
